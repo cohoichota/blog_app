@@ -3,6 +3,7 @@ import 'package:blog_app/features/auth/data/models/user_modal.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 abstract interface class AuthRemoteDataSource {
+  Session? get currentUserSession;
   Future<UserModal> signUpWithEmailPassword({
     required String name,
     required String email,
@@ -18,6 +19,9 @@ abstract interface class AuthRemoteDataSource {
 class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   final SupabaseClient supabaseClient;
   AuthRemoteDataSourceImpl(this.supabaseClient);
+
+  @override
+  Session? get currentUserSession => supabaseClient.auth.currentSession;
 
   @override
   Future<UserModal> loginWithEmailPassword({
