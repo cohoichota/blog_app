@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:blog_app/features/auth/presentation/bloc/auth_bloc.dart';
 import 'core/theme/theme.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'features/blog/presentation/pages/blog_page.dart';
 
 void main() async {
